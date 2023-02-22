@@ -70,6 +70,9 @@
         ],
         "larastan": [
             "@php vendor/bin/phpstan analyse"
+        ],
+        "pint": [
+            "./vendor/bin/pint"
         ]
     },
     "extra": {
