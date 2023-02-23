@@ -2,6 +2,18 @@
 
 This is a baseline of Laravel that I use that comes with pre-configured files and dependencies. It is meant to be a tool for generating new projects.
 
+## Usage
+
+```bash
+git clone https://github.com/whoami15/laravel-project-template.git my-awesome-project
+cd my-awesome-project
+# Remove the git repository metadata
+rm -rf .git/
+# Start a brand new repository
+git init
+git add .
+```
+
 ## Contributing
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) and [CODE_OF_CONDUCT](CODE_OF_CONDUCT.md) for details.
