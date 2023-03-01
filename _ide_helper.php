@@ -4,7 +4,7 @@
 
 /**
  * A helper file for Laravel, to provide autocomplete information to your IDE
- * Generated for Laravel 10.0.3.
+ * Generated for Laravel 10.1.5.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -3661,6 +3661,19 @@
                         return $instance->driver($driver);
         }
                     /**
+         * Resolve the given store.
+         *
+         * @param string $name
+         * @return \Illuminate\Contracts\Cache\Repository 
+         * @throws \InvalidArgumentException
+         * @static 
+         */ 
+        public static function resolve($name)
+        {
+                        /** @var \Illuminate\Cache\CacheManager $instance */
+                        return $instance->resolve($name);
+        }
+                    /**
          * Create a new cache repository with the given implementation.
          *
          * @param \Illuminate\Contracts\Cache\Store $store
@@ -4099,6 +4112,18 @@
         {
                         /** @var \Illuminate\Cache\Repository $instance */
                         return $instance->getStore();
+        }
+                    /**
+         * Set the cache store implementation.
+         *
+         * @param \Illuminate\Contracts\Cache\Store $store
+         * @return static 
+         * @static 
+         */ 
+        public static function setStore($store)
+        {
+                        /** @var \Illuminate\Cache\Repository $instance */
+                        return $instance->setStore($store);
         }
                     /**
          * Get the event dispatcher instance.
@@ -7688,7 +7713,7 @@
      * @method static \Illuminate\Http\Client\PendingRequest withBasicAuth(string $username, string $password)
      * @method static \Illuminate\Http\Client\PendingRequest withDigestAuth(string $username, string $password)
      * @method static \Illuminate\Http\Client\PendingRequest withToken(string $token, string $type = 'Bearer')
-     * @method static \Illuminate\Http\Client\PendingRequest withUserAgent(string $userAgent)
+     * @method static \Illuminate\Http\Client\PendingRequest withUserAgent(string|bool $userAgent)
      * @method static \Illuminate\Http\Client\PendingRequest withUrlParameters(array $parameters = [])
      * @method static \Illuminate\Http\Client\PendingRequest withCookies(array $cookies, string $domain)
      * @method static \Illuminate\Http\Client\PendingRequest maxRedirects(int $max)
@@ -11036,12 +11061,12 @@
          * Clones a request and overrides some of its parameters.
          *
          * @return static 
-         * @param array $query The GET parameters
-         * @param array $request The POST parameters
-         * @param array $attributes The request attributes (parameters parsed from the PATH_INFO, ...)
-         * @param array $cookies The COOKIE parameters
-         * @param array $files The FILES parameters
-         * @param array $server The SERVER parameters
+         * @param array|null $query The GET parameters
+         * @param array|null $request The POST parameters
+         * @param array|null $attributes The request attributes (parameters parsed from the PATH_INFO, ...)
+         * @param array|null $cookies The COOKIE parameters
+         * @param array|null $files The FILES parameters
+         * @param array|null $server The SERVER parameters
          * @static 
          */ 
         public static function duplicate($query = null, $request = null, $attributes = null, $cookies = null, $files = null, $server = null)
@@ -20829,7 +20854,7 @@ namespace  {
                 /**
              * Add a join clause to the query.
              *
-             * @param string $table
+             * @param \Illuminate\Contracts\Database\Query\Expression|string $table
              * @param \Closure|string $first
              * @param string|null $operator
              * @param string|null $second
@@ -20847,7 +20872,7 @@ namespace  {
                 /**
              * Add a "join where" clause to the query.
              *
-             * @param string $table
+             * @param \Illuminate\Contracts\Database\Query\Expression|string $table
              * @param \Closure|string $first
              * @param string $operator
              * @param string $second
@@ -20884,7 +20909,7 @@ namespace  {
                 /**
              * Add a left join to the query.
              *
-             * @param string $table
+             * @param \Illuminate\Contracts\Database\Query\Expression|string $table
              * @param \Closure|string $first
              * @param string|null $operator
              * @param string|null $second
@@ -20900,7 +20925,7 @@ namespace  {
                 /**
              * Add a "join where" clause to the query.
              *
-             * @param string $table
+             * @param \Illuminate\Contracts\Database\Query\Expression|string $table
              * @param \Closure|string $first
              * @param string $operator
              * @param string $second
@@ -20933,7 +20958,7 @@ namespace  {
                 /**
              * Add a right join to the query.
              *
-             * @param string $table
+             * @param \Illuminate\Contracts\Database\Query\Expression|string $table
              * @param \Closure|string $first
              * @param string|null $operator
              * @param string|null $second
@@ -20949,7 +20974,7 @@ namespace  {
                 /**
              * Add a "right join where" clause to the query.
              *
-             * @param string $table
+             * @param \Illuminate\Contracts\Database\Query\Expression|string $table
              * @param \Closure|string $first
              * @param string $operator
              * @param string $second
@@ -20982,7 +21007,7 @@ namespace  {
                 /**
              * Add a "cross join" clause to the query.
              *
-             * @param string $table
+             * @param \Illuminate\Contracts\Database\Query\Expression|string $table
              * @param \Closure|string|null $first
              * @param string|null $operator
              * @param string|null $second
@@ -21102,7 +21127,7 @@ namespace  {
                 /**
              * Add a "where in" clause to the query.
              *
-             * @param string $column
+             * @param \Illuminate\Contracts\Database\Query\Expression|string $column
              * @param mixed $values
              * @param string $boolean
              * @param bool $not
@@ -21118,7 +21143,7 @@ namespace  {
                 /**
              * Add an "or where in" clause to the query.
              *
-             * @param string $column
+             * @param \Illuminate\Contracts\Database\Query\Expression|string $column
              * @param mixed $values
              * @return \Illuminate\Database\Query\Builder 
              * @static 
@@ -21132,7 +21157,7 @@ namespace  {
                 /**
              * Add a "where not in" clause to the query.
              *
-             * @param string $column
+             * @param \Illuminate\Contracts\Database\Query\Expression|string $column
              * @param mixed $values
              * @param string $boolean
              * @return \Illuminate\Database\Query\Builder 
@@ -21147,7 +21172,7 @@ namespace  {
                 /**
              * Add an "or where not in" clause to the query.
              *
-             * @param string $column
+             * @param \Illuminate\Contracts\Database\Query\Expression|string $column
              * @param mixed $values
              * @return \Illuminate\Database\Query\Builder 
              * @static 
@@ -21220,7 +21245,7 @@ namespace  {
                 /**
              * Add a "where null" clause to the query.
              *
-             * @param string|array $columns
+             * @param string|array|\Illuminate\Contracts\Database\Query\Expression $columns
              * @param string $boolean
              * @param bool $not
              * @return \Illuminate\Database\Query\Builder 
@@ -21235,7 +21260,7 @@ namespace  {
                 /**
              * Add an "or where null" clause to the query.
              *
-             * @param string|array $column
+             * @param string|array|\Illuminate\Contracts\Database\Query\Expression $column
              * @return \Illuminate\Database\Query\Builder 
              * @static 
              */ 
@@ -21248,7 +21273,7 @@ namespace  {
                 /**
              * Add a "where not null" clause to the query.
              *
-             * @param string|array $columns
+             * @param string|array|\Illuminate\Contracts\Database\Query\Expression $columns
              * @param string $boolean
              * @return \Illuminate\Database\Query\Builder 
              * @static 
@@ -21262,7 +21287,7 @@ namespace  {
                 /**
              * Add a where between statement to the query.
              *
-             * @param string|\Illuminate\Contracts\Database\Query\Expression $column
+             * @param \Illuminate\Contracts\Database\Query\Expression|string $column
              * @param \Illuminate\Database\Query\iterable $values
              * @param string $boolean
              * @param bool $not
@@ -21278,7 +21303,7 @@ namespace  {
                 /**
              * Add a where between statement using columns to the query.
              *
-             * @param string $column
+             * @param \Illuminate\Contracts\Database\Query\Expression|string $column
              * @param array $values
              * @param string $boolean
              * @param bool $not
@@ -21294,7 +21319,7 @@ namespace  {
                 /**
              * Add an or where between statement to the query.
              *
-             * @param string $column
+             * @param \Illuminate\Contracts\Database\Query\Expression|string $column
              * @param \Illuminate\Database\Query\iterable $values
              * @return \Illuminate\Database\Query\Builder 
              * @static 
@@ -21308,7 +21333,7 @@ namespace  {
                 /**
              * Add an or where between statement using columns to the query.
              *
-             * @param string $column
+             * @param \Illuminate\Contracts\Database\Query\Expression|string $column
              * @param array $values
              * @return \Illuminate\Database\Query\Builder 
              * @static 
@@ -21322,7 +21347,7 @@ namespace  {
                 /**
              * Add a where not between statement to the query.
              *
-             * @param string $column
+             * @param \Illuminate\Contracts\Database\Query\Expression|string $column
              * @param \Illuminate\Database\Query\iterable $values
              * @param string $boolean
              * @return \Illuminate\Database\Query\Builder 
@@ -21337,7 +21362,7 @@ namespace  {
                 /**
              * Add a where not between statement using columns to the query.
              *
-             * @param string $column
+             * @param \Illuminate\Contracts\Database\Query\Expression|string $column
              * @param array $values
              * @param string $boolean
              * @return \Illuminate\Database\Query\Builder 
@@ -21352,7 +21377,7 @@ namespace  {
                 /**
              * Add an or where not between statement to the query.
              *
-             * @param string $column
+             * @param \Illuminate\Contracts\Database\Query\Expression|string $column
              * @param \Illuminate\Database\Query\iterable $values
              * @return \Illuminate\Database\Query\Builder 
              * @static 
@@ -21366,7 +21391,7 @@ namespace  {
                 /**
              * Add an or where not between statement using columns to the query.
              *
-             * @param string $column
+             * @param \Illuminate\Contracts\Database\Query\Expression|string $column
              * @param array $values
              * @return \Illuminate\Database\Query\Builder 
              * @static 
@@ -21380,7 +21405,7 @@ namespace  {
                 /**
              * Add an "or where not null" clause to the query.
              *
-             * @param string $column
+             * @param \Illuminate\Contracts\Database\Query\Expression|string $column
              * @return \Illuminate\Database\Query\Builder 
              * @static 
              */ 
@@ -21393,7 +21418,7 @@ namespace  {
                 /**
              * Add a "where date" statement to the query.
              *
-             * @param string $column
+             * @param \Illuminate\Contracts\Database\Query\Expression|string $column
              * @param string $operator
              * @param \DateTimeInterface|string|null $value
              * @param string $boolean
@@ -21409,7 +21434,7 @@ namespace  {
                 /**
              * Add an "or where date" statement to the query.
              *
-             * @param string $column
+             * @param \Illuminate\Contracts\Database\Query\Expression|string $column
              * @param string $operator
              * @param \DateTimeInterface|string|null $value
              * @return \Illuminate\Database\Query\Builder 
@@ -21424,7 +21449,7 @@ namespace  {
                 /**
              * Add a "where time" statement to the query.
              *
-             * @param string $column
+             * @param \Illuminate\Contracts\Database\Query\Expression|string $column
              * @param string $operator
              * @param \DateTimeInterface|string|null $value
              * @param string $boolean
@@ -21440,7 +21465,7 @@ namespace  {
                 /**
              * Add an "or where time" statement to the query.
              *
-             * @param string $column
+             * @param \Illuminate\Contracts\Database\Query\Expression|string $column
              * @param string $operator
              * @param \DateTimeInterface|string|null $value
              * @return \Illuminate\Database\Query\Builder 
@@ -21455,7 +21480,7 @@ namespace  {
                 /**
              * Add a "where day" statement to the query.
              *
-             * @param string $column
+             * @param \Illuminate\Contracts\Database\Query\Expression|string $column
              * @param string $operator
              * @param \DateTimeInterface|string|int|null $value
              * @param string $boolean
@@ -21471,7 +21496,7 @@ namespace  {
                 /**
              * Add an "or where day" statement to the query.
              *
-             * @param string $column
+             * @param \Illuminate\Contracts\Database\Query\Expression|string $column
              * @param string $operator
              * @param \DateTimeInterface|string|int|null $value
              * @return \Illuminate\Database\Query\Builder 
@@ -21486,7 +21511,7 @@ namespace  {
                 /**
              * Add a "where month" statement to the query.
              *
-             * @param string $column
+             * @param \Illuminate\Contracts\Database\Query\Expression|string $column
              * @param string $operator
              * @param \DateTimeInterface|string|int|null $value
              * @param string $boolean
@@ -21502,7 +21527,7 @@ namespace  {
                 /**
              * Add an "or where month" statement to the query.
              *
-             * @param string $column
+             * @param \Illuminate\Contracts\Database\Query\Expression|string $column
              * @param string $operator
              * @param \DateTimeInterface|string|int|null $value
              * @return \Illuminate\Database\Query\Builder 
@@ -21517,7 +21542,7 @@ namespace  {
                 /**
              * Add a "where year" statement to the query.
              *
-             * @param string $column
+             * @param \Illuminate\Contracts\Database\Query\Expression|string $column
              * @param string $operator
              * @param \DateTimeInterface|string|int|null $value
              * @param string $boolean
@@ -21533,7 +21558,7 @@ namespace  {
                 /**
              * Add an "or where year" statement to the query.
              *
-             * @param string $column
+             * @param \Illuminate\Contracts\Database\Query\Expression|string $column
              * @param string $operator
              * @param \DateTimeInterface|string|int|null $value
              * @return \Illuminate\Database\Query\Builder 
@@ -21879,7 +21904,7 @@ namespace  {
                 /**
              * Add a "group by" clause to the query.
              *
-             * @param array|string|\Illuminate\Contracts\Database\Query\Expression $groups
+             * @param array|\Illuminate\Contracts\Database\Query\Expression|string $groups
              * @return \Illuminate\Database\Query\Builder 
              * @static 
              */ 
@@ -22422,7 +22447,7 @@ namespace  {
                 /**
              * Retrieve the "count" result of the query.
              *
-             * @param string $columns
+             * @param \Illuminate\Contracts\Database\Query\Expression|string $columns
              * @return int 
              * @static 
              */ 
@@ -22435,7 +22460,7 @@ namespace  {
                 /**
              * Retrieve the minimum value of a given column.
              *
-             * @param string $column
+             * @param \Illuminate\Contracts\Database\Query\Expression|string $column
              * @return mixed 
              * @static 
              */ 
@@ -22448,7 +22473,7 @@ namespace  {
                 /**
              * Retrieve the maximum value of a given column.
              *
-             * @param string $column
+             * @param \Illuminate\Contracts\Database\Query\Expression|string $column
              * @return mixed 
              * @static 
              */ 
@@ -22461,7 +22486,7 @@ namespace  {
                 /**
              * Retrieve the sum of the values of a given column.
              *
-             * @param string $column
+             * @param \Illuminate\Contracts\Database\Query\Expression|string $column
              * @return mixed 
              * @static 
              */ 
@@ -22474,7 +22499,7 @@ namespace  {
                 /**
              * Retrieve the average of the values of a given column.
              *
-             * @param string $column
+             * @param \Illuminate\Contracts\Database\Query\Expression|string $column
              * @return mixed 
              * @static 
              */ 
@@ -22487,7 +22512,7 @@ namespace  {
                 /**
              * Alias for the "avg" method.
              *
-             * @param string $column
+             * @param \Illuminate\Contracts\Database\Query\Expression|string $column
              * @return mixed 
              * @static 
              */ 
