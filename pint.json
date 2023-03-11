@@ -3,7 +3,7 @@
     "rules": {
         "blank_line_between_import_groups": true,
         "concat_space": {
-            "spacing": "one"
+            "spacing": "none"
         },
         "class_attributes_separation": {
             "elements": {
